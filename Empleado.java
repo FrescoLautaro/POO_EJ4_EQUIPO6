@@ -1,18 +1,24 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Other/File.java to edit this template
- */
 
-/**
- *
- * @author ET36
- */
-public class Empleado {
+public class Empleado extends Persona {
+    private double sB;
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        // TODO code application logic here
+    public Empleado(String nombre, double sB) {
+        super(nombre);
+        this.sB = sB;
     }
+
+    @Override
+    public String toString() {
+        return "Empleado{" + "sB=" + sB + '}';
+    }
+
+    public double getsB() {
+        return sB;
+    }
+
+    public void setsB(double sB) {
+        this.sB = sB;
+    }
+    
+    
 }

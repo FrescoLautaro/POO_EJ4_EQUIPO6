@@ -1,18 +1,26 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Other/File.java to edit this template
- */
 
-/**
- *
- * @author ET36
- */
 public class Persona {
+    private String nombre;
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        // TODO code application logic here
+    public Persona(String nombre) {
+        this.nombre = nombre;
     }
+
+    @Override
+    public String toString() {
+        return "Persona{" + "nombre=" + nombre + '}';
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    
+    
+    
+    
 }
+
