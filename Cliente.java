@@ -1,8 +1,9 @@
+package poo_4;
 
 
 public class Cliente extends Persona{
     
-   private int cantDesayunos;
+    int cantDesayunos;
 
     public Cliente(String nombre, int cantDesayunos) {
         super(nombre);
