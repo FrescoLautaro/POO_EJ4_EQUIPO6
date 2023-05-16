@@ -1,4 +1,4 @@
-package poo_4;
+package poo_breakfast;
 
 
 public class Cliente extends Persona{
@@ -9,6 +9,7 @@ public class Cliente extends Persona{
         super(nombre);
         this.cantDesayunos = cantDesayunos;
     }
+
 
     @Override
     public String toString() {

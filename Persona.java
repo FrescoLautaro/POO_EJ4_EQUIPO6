@@ -1,4 +1,4 @@
-
+package poo_breakfast;
 public class Persona {
     private String nombre;
 

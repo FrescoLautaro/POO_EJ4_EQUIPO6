@@ -1,4 +1,4 @@
-package poo_4;
+package poo_breakfast;
 public class Ingrediente {
     private String nombre;
     private double costo;

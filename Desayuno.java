@@ -1,4 +1,4 @@
-package poo_4;
+package poo_breakfast;
 
 
 import java.util.ArrayList;
@@ -7,12 +7,14 @@ public class Desayuno {
     private String nombre;
     private double precio;
     private ArrayList<Ingrediente>listaI = new ArrayList<>();
-    private int numeroDesayuno;
-
-    public Desayuno(String nombre, ArrayList<Ingrediente> listaI, int num) {
-        this.numeroDesayuno = num; 
+   
+   
+    
+    public Desayuno(String nombre, ArrayList<Ingrediente> listaI ) {
+        
         this.listaI = listaI;
         this.nombre = nombre;
+       
     }
     public double precioTotal()
     {
@@ -40,23 +42,17 @@ public class Desayuno {
         this.listaI = listaI;
     }
 
-    public int getNumeroDesayuno() {
-        return numeroDesayuno;
-    }
-
-    public void setNumeroDesayuno(int numeroDesayuno) {
-        this.numeroDesayuno = numeroDesayuno;
-    }
-    
+   
 
     @Override
     public String toString() {
-        return "nombre: " + nombre +"( "+this.detalleT()+ ")" +"..............$" + precio ;
+        return "nombre: " + nombre +"( "+this.detalleT()+ ")" +"..............$" + this.precioTotal();
     }
 
     private String detalleT() {
         String extra = "";
         for (Ingrediente i: listaI) {
+            
             extra += i.getNombre() + " / ";
         }
         return extra;

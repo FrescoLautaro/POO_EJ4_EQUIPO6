@@ -1,5 +1,4 @@
-package poo_4;
-
+package poo_breakfast;
 import java.util.ArrayList;
 
 
@@ -8,22 +7,28 @@ public class Pedido {
     private ArrayList<Desayuno> arrayDesayuno = new ArrayList<>();
     private Cliente cli;
 
-    public Pedido(double importe, ArrayList<Desayuno> arrayDesayuno, Cliente cli) {
-        this.importe = importe;
+
+    public Pedido(ArrayList<Desayuno> arrayDesayuno, Cliente cli) {
+       
         this.arrayDesayuno = arrayDesayuno;
         this.cli = cli;
+       
     }
 
     public boolean desGratis(Desayuno d){
-     if ( d.getNumeroDesayuno()==11){
+     if ( this.cli.getCantDesayunos()==11){
          return true;
      }
        return false;
     }
     
     public void emitirTicket(){
-        System.out.println("Ingredientes: "+ arrayDesayuno.toString()+ "Precio: "+ this.precio );
-    
+        System.out.println("Desayunos: ");
+        
+        for(Desayuno d:arrayDesayuno){
+            System.out.println(d.toString());
+        }   
+        System.out.println("Total .....$: "+ this.CalcularImporte());
     }
     
     public double CalcularImporte(){
@@ -33,7 +38,7 @@ public class Pedido {
             importe+= d.precioTotal(); 
          }
         }
-         //evaluar cuantos desayunos quiere (cantdesayunos) e ir añadiendo el total de cada desayuno al importe
+         //evaluar cuantos desayunos quiere (cantdesayunos) e ir aï¿½adiendo el total de cada desayuno al importe
         //Importe es igual al precio de todos los desayunos
         //Precio es igual al precio de un desayuno
         //llamar a la desgratis

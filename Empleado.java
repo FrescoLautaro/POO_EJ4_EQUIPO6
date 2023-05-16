@@ -1,3 +1,4 @@
+package poo_breakfast;
 
 public class Empleado extends Persona {
     private double sB;
