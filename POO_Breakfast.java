@@ -11,23 +11,27 @@ import java.util.Scanner;
  *
  * @author ET36
  */
-public class POO_Breakfast {
+
+    public class POO_Breakfast {
 
     
     public static void main(String[] args) {
         
      Scanner t=new Scanner(System.in);  
      // creo un cliente
-        System.out.println("Nombre del cliente?");
+     System.out.println("Nombre del cliente?");
      String nombre=t.next();
-        System.out.println("Cuantos desayunos vas a comprar?");
-     int cantDesayunos =t.nextInt();
-     Cliente cli=new Cliente( nombre, cantDesayunos);
+     System.out.println("Cuantos desayunos tenes acumulados?");
+     int acumulados =t.nextInt();
+     Cliente cli=new Cliente( nombre, acumulados);
+     
+     System.out.println("cuantos desayunos lleva el cliente?");
+      int compraD =t.nextInt();
      // Creo lista de ingredientes para un desyuno
      ArrayList<Ingrediente> listaI=new ArrayList();
-      ArrayList<Desayuno> listaD=new ArrayList();
-       cargarListaD(listaD, listaI, cantDesayunos);
-     //
+     ArrayList<Desayuno> listaD=new ArrayList();
+     cargarListaD(listaD, listaI, compraD);
+   
    // Creo un Pedido
    Pedido p1=new Pedido(listaD,cli);
    p1.emitirTicket();
@@ -60,11 +64,11 @@ public class POO_Breakfast {
             System.out.println("cantidad de Ingredientes?");
             cantI=t.nextInt();
            ArrayList <Ingrediente> lista=cargarIngrediente(cantI);
-           listaD.add( new Desayuno(n,listaI));           
+           listaD.add( new Desayuno(n,lista));           
         }
+    
        
         
     }
-
     
 }

@@ -15,11 +15,11 @@ public class Pedido {
        
     }
 
-    public boolean desGratis(Desayuno d){
-     if ( this.cli.getCantDesayunos()==11){
+    public boolean desGratis(){
+     if ( this.cli.getCantDesayunos()>10){
          return true;
-     }
-       return false;
+     }else{       return false;}
+     
     }
     
     public void emitirTicket(){
@@ -34,18 +34,21 @@ public class Pedido {
     public double CalcularImporte(){
         
         for(Desayuno d: arrayDesayuno){
-         if (!desGratis(d)){
-            importe+= d.precioTotal(); 
+              importe+= d.precioTotal(); 
          }
+        this.cli.setCantDesayunos(this.cli.getCantDesayunos()+this.arrayDesayuno.size());
+        int ultimo=this.arrayDesayuno.size()-1;
+        if (desGratis())
+        {importe = importe -arrayDesayuno.get(ultimo).getPrecio(); }
+        return importe;
+        
         }
          //evaluar cuantos desayunos quiere (cantdesayunos) e ir a�adiendo el total de cada desayuno al importe
         //Importe es igual al precio de todos los desayunos
         //Precio es igual al precio de un desayuno
         //llamar a la desgratis
         
-        return importe;
-    }
-   
+      
     public void AgregarDesayuno(Desayuno d){
        arrayDesayuno.add(d);
     }  
