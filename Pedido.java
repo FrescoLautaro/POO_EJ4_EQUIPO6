@@ -1,5 +1,6 @@
 package poo_breakfast;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 
 public class Pedido {
@@ -8,19 +9,35 @@ public class Pedido {
     private Cliente cli;
 
 
-    public Pedido(ArrayList<Desayuno> arrayDesayuno, Cliente cli) {
+    public Pedido(int cantDPedido, Cliente cli) {
        
-        this.arrayDesayuno = arrayDesayuno;
+        cargarListaD(arrayDesayuno,cantDPedido);
         this.cli = cli;
        
     }
 
     public boolean desGratis(){
-     if ( this.cli.getCantDesayunos()>10){
+     if ( this.cli.getAcumulados()>10){
          return true;
      }else{       return false;}
      
     }
+    
+    private static void cargarListaD(ArrayList<Desayuno> listaD, int cantDesayunos) {
+      ArrayList<Ingrediente> listaI=new ArrayList();
+      Scanner t=new Scanner(System.in);  
+      String n=" ";  
+      int cantI=0;
+        for (int i = 0; i < cantDesayunos; i++) {
+           System.out.println("Nombre desayuno?");
+            n=t.next();
+            System.out.println("cantidad de Ingredientes?");
+            cantI=t.nextInt();
+            listaD.add( new Desayuno(n,cantI));           
+        }
+    }
+    
+    
     
     public void emitirTicket(){
         System.out.println("Desayunos: ");
@@ -36,7 +53,9 @@ public class Pedido {
         for(Desayuno d: arrayDesayuno){
               importe+= d.precioTotal(); 
          }
-        this.cli.setCantDesayunos(this.cli.getCantDesayunos()+this.arrayDesayuno.size());
+        // modifico la cantidad de desayuno acumulados del cliente; 
+        // le agrego lo que lleva en este pedido
+        this.cli.setCantDesayunos(this.cli.getAcumulados()+this.arrayDesayuno.size());
         int ultimo=this.arrayDesayuno.size()-1;
         if (desGratis())
         {importe = importe -arrayDesayuno.get(ultimo).getPrecio(); }

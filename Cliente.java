@@ -3,25 +3,27 @@ package poo_breakfast;
 
 public class Cliente extends Persona{
     
-    int cantDesayunos;
+    int acumulados;
 
-    public Cliente(String nombre, int cantDesayunos) {
+    public Cliente(String nombre, int acumulados) {
         super(nombre);
-        this.cantDesayunos = cantDesayunos;
+        this.acumulados = acumulados;
     }
 
 
     @Override
     public String toString() {
-        return "Cliente{" + "cantDesayunos=" + cantDesayunos + '}';
+        return "Cliente{" + "acumulados=" + acumulados + '}';
     }
 
-    public int getCantDesayunos() {
-        return cantDesayunos;
+    public int getAcumulados() {
+        return acumulados;
     }
 
-    public void setCantDesayunos(int cantDesayunos) {
-        this.cantDesayunos = cantDesayunos;
+   
+
+    public void setCantDesayunos(int acumulados) {
+        this.acumulados = acumulados;
     }
     
     
