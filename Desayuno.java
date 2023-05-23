@@ -16,7 +16,7 @@ public class Desayuno {
         this.nombre = nombre;
        
     }
-    private static void cargarIngrediente(ArrayList<Ingrediente> lista, int cantI) {
+    private static void cargarIngrediente(ArrayList<Ingrediente> listaI, int cantI) {
        Scanner t=new Scanner(System.in);  
       String nombre=" ";  
       double precio=0;   
@@ -25,13 +25,13 @@ public class Desayuno {
             nombre=t.next();
             System.out.println("Precio?");
             precio=t.nextDouble();
-            lista.add(new Ingrediente(nombre,precio));
+            listaI.add(new Ingrediente(nombre,precio)); //Creamos un nuevo objeto de ingrediente que tiene nombre y precio, y se lo añadimos a listaI
         }
       
     }
     
        
-    public double precioTotal()
+    public double precioTotal() //Calcula el precio de cada desayuno recorriendo los costos de cada ingrediente de la listaI y sumandoloo a total
     {
         double total = 0.0;
         for (Ingrediente i:listaI) {
@@ -61,10 +61,10 @@ public class Desayuno {
 
     @Override
     public String toString() {
-        return "nombre: " + nombre +"( "+this.detalleT()+ ")" +"..............$" + this.precioTotal();
+        return "nombre: " + nombre +"( "+this.detalleT()+ ")" +"..............$" + this.precioTotal(); 
     }
 
-    private String detalleT() {
+    private String detalleT() { //Tiene el detalle de todos los ingredientes de la listaI
         String extra = "";
         for (Ingrediente i: listaI) {
             
